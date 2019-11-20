@@ -5,7 +5,12 @@ const socket = io();
 const outputYou = document.querySelector('.output-you');
 const outputBot = document.querySelector('.output-bot');
 
-const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+if(window.SpeechRecognitio){
+  const SpeechRecognition = window.SpeechRecognition;
+}else{
+  const SpeechRecognition = window.webkitSpeechRecognition;
+}
+
 const recognition = new SpeechRecognition();
 
 recognition.lang = 'en-US';
